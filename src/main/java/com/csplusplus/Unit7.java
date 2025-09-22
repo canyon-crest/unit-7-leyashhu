@@ -9,7 +9,11 @@ public class Unit7 {
     // DO NOT use the Collections class or any additional methods beyond size(), add(), get(), set(), and remove().
     public static int sumOfElements(ArrayList<Integer> list) {
         // TODO: Implement this method
-        return 0;  // Placeholder return value
+    	int sum=0;
+    	for (Integer i: list) {
+    		sum += list.get(i);
+    	}
+        return sum;  // Placeholder return value
     }
 
     // 2. Method that removes all instances of a specific element from the ArrayList
@@ -17,6 +21,11 @@ public class Unit7 {
     // DO NOT use removeIf(), Collections, or other methods beyond size(), add(), get(), set(), and remove().
     public static void removeAllInstances(ArrayList<Integer> list, int elementToRemove) {
         // TODO: Implement this method
+    	for (Integer i: list) {
+    		if (list.get(i) == elementToRemove) {
+    			list.remove(i);
+    		}
+    	}
     }
 
     // 3. Method that doubles each element in the ArrayList
@@ -24,6 +33,9 @@ public class Unit7 {
     // DO NOT use Collections or other methods beyond size(), add(), get(), set(), and remove().
     public static void doubleAllElements(ArrayList<Integer> list) {
         // TODO: Implement this method
+    	for (Integer i: list) {
+    		list.set(i, list.get(i)*2);
+    	}
     }
 
     // 4. Method that adds a new element to the list only if it is not already present
@@ -31,6 +43,14 @@ public class Unit7 {
     // DO NOT use contains(), Collections, or other methods beyond size(), add(), get(), set(), and remove().
     public static void addIfNotPresent(ArrayList<Integer> list, int newElement) {
         // TODO: Implement this method
+    	for (Integer i: list) {
+    		if (list.get(i) == newElement) {
+    			return;
+    		}
+    		else {
+    			list.add(newElement);
+    		}
+    	}
     }
 
     // 5. Method that returns a new ArrayList containing only the even elements from the input list
@@ -38,7 +58,21 @@ public class Unit7 {
     // DO NOT use streams, Collections, or other methods beyond size(), add(), get(), set(), and remove().
     public static ArrayList<Integer> getEvenElements(ArrayList<Integer> list) {
         // TODO: Implement this method
-        return null;  // Placeholder return value
+//    	if (list.size()%2==0) {
+//        	for (int i=1; i<list.size()-1; i+=2) {
+//        		
+//        	}
+//        else {
+//       		for (int i=1; i<list.size();i+=2) {
+//        			
+//        	}
+//        	}
+//    	Integer[] list2 = {};
+    	ArrayList<Integer> list2 = new ArrayList<Integer>();
+    	for (int i=1; i<list.size()-1;i+=2) {
+    		list2.add(list.get(i));
+    	}
+        return list2;  // Placeholder return value
     }
 
     // 6. Method that removes elements divisible by 5

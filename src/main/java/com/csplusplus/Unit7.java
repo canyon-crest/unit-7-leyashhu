@@ -11,7 +11,7 @@ public class Unit7 {
         // TODO: Implement this method
     	int sum=0;
     	for (Integer i: list) {
-    		sum += list.get(i);
+    		sum += i;
     	}
         return sum;  // Placeholder return value
     }
@@ -21,9 +21,10 @@ public class Unit7 {
     // DO NOT use removeIf(), Collections, or other methods beyond size(), add(), get(), set(), and remove().
     public static void removeAllInstances(ArrayList<Integer> list, int elementToRemove) {
         // TODO: Implement this method
-    	for (Integer i: list) {
+    	for (int i=0; i<list.size(); i++) {
     		if (list.get(i) == elementToRemove) {
     			list.remove(i);
+    			i--;
     		}
     	}
     }
@@ -33,7 +34,7 @@ public class Unit7 {
     // DO NOT use Collections or other methods beyond size(), add(), get(), set(), and remove().
     public static void doubleAllElements(ArrayList<Integer> list) {
         // TODO: Implement this method
-    	for (Integer i: list) {
+    	for (int i=0; i<list.size(); i++) {
     		list.set(i, list.get(i)*2);
     	}
     }
@@ -43,7 +44,7 @@ public class Unit7 {
     // DO NOT use contains(), Collections, or other methods beyond size(), add(), get(), set(), and remove().
     public static void addIfNotPresent(ArrayList<Integer> list, int newElement) {
         // TODO: Implement this method
-    	for (Integer i: list) {
+    	for (int i=0; i<list.size(); i++) {
     		if (list.get(i) == newElement) {
     			return;
     		}
@@ -80,6 +81,12 @@ public class Unit7 {
     // DO NOT use removeIf(), Collections, or other methods beyond size(), add(), get(), set(), and remove().
     public static void removeElementsDivisibleBy5(ArrayList<Integer> list) {
         // TODO: Implement this method
+    	for (int i=0; i<list.size(); i++) {
+    		if (list.get(i)%5==0) {
+    			list.remove(i);
+    			i--;
+    		}
+    	}
     }
 
     // 7. Method that reverses the list without using the Collections class
@@ -87,6 +94,11 @@ public class Unit7 {
     // DO NOT use Collections or other methods beyond size(), add(), get(), set(), and remove().
     public static void reverseList(ArrayList<Integer> list) {
         // TODO: Implement this method
+    	ArrayList<Integer> copy = new ArrayList<Integer>();
+    	for (int i=0; i<list.size(); i++) {
+    		copy.add(list.get(i));    	
+    	}
+    	list = copy;
     }
 
     // 8. Method that shuffles the elements of the list
@@ -94,5 +106,8 @@ public class Unit7 {
     // DO NOT use the Collections.shuffle() or other methods beyond size(), add(), get(), set(), and remove().
     public static void shuffleList(ArrayList<Integer> list) {
         // TODO: Implement this method
+    	for (int i=0; i<list.size(); i++) {
+    		list.set((int)(Math.random()*list.size()-1), list.get(i));
+    	}
     }
 }
